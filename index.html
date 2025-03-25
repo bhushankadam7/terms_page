@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Technology - GamePacs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ======== Technology Page Styles ======== */
+        .tech-hero {
+            color: antiquewhite;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #2d3436 0%, #6b2e2e 100%);
+            position: relative;
+            overflow: hidden;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
+
+        .tech-hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background-image: url('data:image/svg+xml,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="%23ff4754" opacity="0.1"/></svg>');
+            animation: rotate 60s linear infinite;
+        }
+
+        .tech-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+
+        .tech-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            cursor: pointer;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, #ff4754, transparent);
+            transform: rotate(45deg);
+            animation: borderGlow 4s linear infinite;
+            opacity: 0.1;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            color: #ff4754;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transform: translateZ(50px);
+        }
+
+        .feature-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-item {
+            padding: 1rem;
+            margin: 1rem 0;
+            background: rgba(255,71,84,0.05);
+            border-radius: 8px;
+            transform: translateX(-30px);
+            opacity: 0;
+            transition: all 0.6s ease;
+        }
+
+        .tech-card:hover .feature-item {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes borderGlow {
+            from { transform: rotate(45deg) translateX(-50%); }
+            to { transform: rotate(45deg) translateX(50%); }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: #ff4754;
+            border-radius: 50%;
+            animation: particleFloat 8s infinite;
+        }
+
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { transform: translateY(-100px) translateX(100px); opacity: 0.3; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tech-hero { height: 50vh; }
+            .tech-grid { grid-template-columns: 1fr; }
+            .tech-card { margin: 1rem 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <!-- Your existing header code -->
+    </header>
+
+    <!-- Technology Hero -->
+    <section class="tech-hero">
+        <div class="particles">
+            <!-- JavaScript will add particles here -->
+        </div>
+        <h1 class="hero-title">Pushing Gaming Boundaries</h1>
+    </section>
+
+    <!-- Technology Content -->
+    <main class="tech-container">
+        <!-- Engine Section -->
+        <div class="tech-grid">
+            <div class="tech-card">
+                <i class="fas fa-cogs tech-icon"></i>
+                <h2>Next-Gen Game Engine</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">Custom-built Vulkan-based renderer</li>
+                    <li class="feature-item">Physics-based rendering pipeline</li>
+                    <li class="feature-item">Real-time global illumination</li>
+                    <li class="feature-item">AI-driven animation system</li>
+                </ul>
+            </div>
+
+            <!-- Networking Section -->
+            <div class="tech-card">
+                <i class="fas fa-network-wired tech-icon"></i>
+                <h2>Server Architecture</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">Global edge network deployment</li>
+                    <li class="feature-item">5ms response time guarantee</li>
+                    <li class="feature-item">DDOS protection system</li>
+                    <li class="feature-item">Auto-scaling cluster technology</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Demo Video -->
+        <video class="tech-video animate-fade" controls poster="tech-poster.jpg">
+            <source src="tech-demo.mp4" type="video/mp4">
+        </video>
+
+        <!-- AI Section -->
+        <div class="tech-grid">
+            <div class="tech-card">
+                <i class="fas fa-brain tech-icon"></i>
+                <h2>AI Ecosystem</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">Neural network NPC behavior</li>
+                    <li class="feature-item">Procedural content generation</li>
+                    <li class="feature-item">Real-time cheat detection</li>
+                    <li class="feature-item">Dynamic difficulty adjustment</li>
+                </ul>
+            </div>
+
+            <!-- Graphics Section -->
+            <div class="tech-card">
+                <i class="fas fa-eye tech-icon"></i>
+                <h2>Visual Technology</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">8K texture streaming</li>
+                    <li class="feature-item">Ray-traced reflections</li>
+                    <li class="feature-item">Volumetric cloud rendering</li>
+                    <li class="feature-item">HDR10+ support</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <!-- Your existing footer code -->
+    </footer>
+
+    <script>
+        // Particle Animation
+        function createParticles() {
+            const particles = document.querySelector('.particles');
+            for(let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.cssText = `
+                    width: ${Math.random() * 5 + 2}px;
+                    height: ${Math.random() * 5 + 2}px;
+                    left: ${Math.random() * 100}%;
+                    top: ${Math.random() * 100}%;
+                    animation-delay: ${Math.random() * 4}s;
+                `;
+                particles.appendChild(particle);
+            }
+        }
+
+        // Scroll Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            document.querySelectorAll('.animate-fade').forEach(el => {
+                el.style.opacity = 0;
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
